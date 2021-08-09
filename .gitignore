@@ -1,0 +1,6 @@
+*__pycache__
+__pycache__/
+*testdb
+*.vscode/
+media
+proyecto_final/test

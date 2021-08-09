@@ -1,0 +1,54 @@
+{% extends "proyecto_final/base.html" %} {%load static%} {% block content %}
+
+<section class="container mt-4  mb-3 mr-3">
+
+    <div class="row de-flex flex-row" style="float: right;">
+
+        {% include "shoppcar/widget.html" %}
+
+    </div>
+
+
+
+
+
+
+
+    <div class="row d-flex flex-row">
+
+        {% for productos in producto %}
+
+        <div class="col-lg-4 col-xl-4 col-md-6 col-sm-12 mt-3 mb-4">
+
+            <div class="card">
+
+                <img src="{{productos.image.url}}" alt="" class="card-img-top" style="Width:auto; height:200;">
+
+                <div class="card-body col-12" style="  height: 160px; border-radius: 3px">
+
+                    <h5 class="card-title text-wrap"> {{productos.name}}</h5>
+
+                    <p class="card-text">Precio: {{productos.price}} $</p>
+
+                    <p class="card-text">Categoria: {{productos.category.name}}</p>
+
+                    <div><span class="badge bg-success">{{productos.tag.name}}</span>
+
+                    </div>
+
+                </div>
+                <a href="{% url 'shopping:agregar' productos.id %}" class="btn btn-success">Comprar</a>
+            </div>
+        </div>
+
+
+        {% endfor %}
+    </div>
+
+
+
+    </div>
+</section>
+
+
+{% endblock %}

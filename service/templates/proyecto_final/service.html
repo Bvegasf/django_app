@@ -1,0 +1,47 @@
+{% extends "proyecto_final/base.html" %} {%load static%} {% block content %} {% for service in serv %}
+
+<!-- services-->
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="intro">
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{service.image.url}}" alt="services" style="width:60%; height:65%;">
+            <div class="intro-text left-0 text-center  p-5 rounded" id="n">
+                <h2 class="section-heading mb-4">
+                    <span class="section-heading-lower">{{service.title}}</span>
+                    <!-- <span class="section-heading-lower">Puntualidad y seguridad</span>-->
+                </h2>
+                <p class="mb-3">{{service.description}}
+                </p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endfor %} {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.82.0">
+    <title>Blog Template · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/blog/">

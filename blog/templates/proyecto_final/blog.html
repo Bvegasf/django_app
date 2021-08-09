@@ -1,0 +1,39 @@
+{% extends "proyecto_final/base.html" %} {%load static%} {% block content %}
+<section class="container-fluid mt-3 mb-3">
+
+
+
+    <div class="row d-flex flex-row pt-3 pl-3 pr-3">
+        {% for Post in post %}
+        <div class="col-4 mt-3 mb-4 ml-3 mr-3">
+            <div class="card ml-3 mr-3">
+
+                <img src="{{Post.image.url}}" alt="" class="card-img-top" style="width: auto; height: 300px;">
+
+                <div class="card-body col-12" style="  height: 200px; width: auto; overflow: scroll;">
+                    <h5 class="card-title text-wrap">{{Post.title}}</h5>
+                    <p class="card-text">{{Post.content}}</p>
+
+                </div>
+                <a href="#" class="btn btn-primary">Ver</a>
+            </div>
+        </div>
+
+
+        {% endfor %}
+    </div>
+
+
+
+    </div>
+</section>
+
+
+<section>
+    <div style="width:75%; margin: auto; text-align: center; color:white">
+        Categorias: {% for Post in post %} {% for category in Post.category.all %}
+
+        <a href="{%url 'category' category.id %}" class="link_Category">{{category.name}}</a> &nbsp; {% endfor %} {% endfor %}
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,84 @@
+<div class="container mt-3" style="width: 250px;">
+    <table class="table-bordered bg-success bg-gradient border " style="color: white ">
+
+        <thead>
+            <tr>
+
+                <th colspan="3" class="text-center mb-3">
+
+                    Carrito
+                </th>
+
+            </tr>
+
+
+            <tr>
+                <td class="pt-2 p-3">
+                    Producto
+                </td>
+
+                <td class="pt-2 p-3">
+                    Cantidad
+                </td>
+
+                <td class="text-center pt-2 p-3">Precio de Producto
+
+                </td>
+            </tr>
+
+            <tr>
+
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% if request.session.carro.items %} {% for key, value in request.session.carro.items %}
+            <tr class="text-center">
+                <td>
+                    {{value.product_nombre}}
+                </td>
+                <td class="pt-2 p-3">
+
+                    {{value.product_cantidad}}
+
+                </td>
+                <td>
+                    <a href="{% url 'shopping:agregar' value.product_id %}" class="btn btn-success mb-2 mt-2 border">+</a>
+
+                    <a href="{% url 'shopping:restar'  value.product_id %}" class="btn btn-danger mb-2 mt-2 border">-</a> <br> {{value.product_precio}}
+                </td>
+
+            </tr>
+
+            {% endfor %} {% else %}
+
+            <tr>
+                <td colspan="3">
+                    <div class="alert alert-danger text-center mt-3">
+                        No se han agregado productos al carro
+                    </div>
+
+                </td>
+            </tr>
+
+            {% endif %}
+
+
+
+        </tbody>
+
+        <tfoot>
+            <tr class="">
+                <td colspan="3" class="text-center justify-content-between"> Total: {{total}} $ </td>
+
+
+            </tr>
+        </tfoot>
+
+
+
+
+    </table>
+
+</div>
